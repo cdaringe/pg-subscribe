@@ -1,0 +1,70 @@
+{
+  "name": "pg-subscribe",
+  "version": "0.0.0-semantic-release",
+  "description": "subscribe to postgres events in node via LISTEN/NOTIFY apis",
+  "main": "build/index.js",
+  "repository": "git@github.com:cdaringe/pg-subscribe.git",
+  "author": "cdaringe <christopher.dieringer@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "build/**/*"
+  ],
+  "dependencies": {
+    "pg-format": "^1.0.2",
+    "promise-retry": "^1.1.1"
+  },
+  "peerDependencies": {
+    "pg": "7+"
+  },
+  "engines": {
+    "node": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier-standard 'src/**/*.ts'",
+    "precommit": "lint-staged",
+    "start": "tsc -w",
+    "test": "nyc --exclude build/test ava build/test/**/*.test.js --fail-fast --tap"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.1.2",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@types/dockerode": "^2.5.5",
+    "@types/execa": "^0.9.0",
+    "@types/freeport": "^1.0.21",
+    "@types/pg": "^7.4.10",
+    "@types/pg-format": "^1.0.0",
+    "@types/promise-retry": "^1.1.2",
+    "ava": "1.0.0-beta.8",
+    "coveralls": "^3.0.2",
+    "dockerode": "^2.5.6",
+    "dotenv": "6.0.0",
+    "execa": "^1.0.0",
+    "freeport": "^1.0.5",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "nyc": "^13.0.1",
+    "perish": "^1.0.2",
+    "pg": "^7.4.3",
+    "prettier-standard": "^8.0.1",
+    "semantic-release": "^15.9.15",
+    "typescript": "^3.0.3"
+  },
+  "lint-staged": {
+    "linters": {
+      "src/**/*.js": [
+        "prettier-standard",
+        "git add"
+      ]
+    }
+  },
+  "ava": {
+    "babel": false,
+    "compileEnhancements": false
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
