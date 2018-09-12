@@ -64,5 +64,8 @@
   "ava": {
     "babel": false,
     "compileEnhancements": false
-  }
+  },
+  "keywords": [
+    "postgres", "pg", "notify", "listen", "pubsub", "db", "events", "subscribe"
+  ]
 }
