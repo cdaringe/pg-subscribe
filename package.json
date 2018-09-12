@@ -21,6 +21,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "commitmsg": "commitlint -E GIT_PARAMS",
     "format": "prettier-standard 'src/**/*.ts'",
     "lint-staged": "lint-staged",
     "postbuild": "cp build/index.d.ts docs/ && git add docs/index.d.ts",
@@ -63,10 +64,5 @@
   "ava": {
     "babel": false,
     "compileEnhancements": false
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }
