@@ -16,10 +16,10 @@ npm install pg-subscribe --save
 
 ## usage
 
-
 ### basic
 
 ```js
+import { PgSubscriber } from 'pg-subscribe'
 var subscriber = new PgSubscriber('postgres://username@localhost/database')
 await subscriber.addChannel('channelName', function onNotify (channelPayload) {
   // Process the payload – if it was JSON that JSON has been parsed into an object for you
@@ -32,6 +32,7 @@ the above sends `NOTIFY channelName, '{"hello":"world"}'` to PostgreSQL, which w
 ### advanced
 
 ```js
+import { PgSubscriber } from 'pg-subscribe'
 var subscriber = new PgSubscriber('postgres://username@localhost/database')
 await subscriber.addChannel('channelName')
 // subscriber is a full EventEmitter object that sends events on channel names
@@ -42,4 +43,4 @@ subscriber.once('channelName', function (channelPayload) {
 
 ## api
 
-see the typing published typings!
+a copy of the latest typings can always [be found here](https://github.com/cdaringe/pg-subscribe/blob/master/docs/index.d.ts)

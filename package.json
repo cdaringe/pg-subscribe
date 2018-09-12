@@ -22,7 +22,9 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier-standard 'src/**/*.ts'",
-    "precommit": "lint-staged",
+    "lint-staged": "lint-staged",
+    "postbuild": "cp build/index.d.ts docs/ && git add docs/index.d.ts",
+    "precommit": "run-p lint-staged build",
     "start": "tsc -w",
     "test": "nyc --exclude build/test ava build/test/**/*.test.js --fail-fast --tap"
   },
