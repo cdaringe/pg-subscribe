@@ -48,7 +48,7 @@
     "lint-staged": "^8.0.0",
     "nyc": "^13.0.1",
     "perish": "^1.0.2",
-    "pg": "^7.4.3",
+    "pg": "^7.8.0",
     "prettier-standard": "^8.0.1",
     "semantic-release": "^15.9.15",
     "typescript": "^3.0.3"
