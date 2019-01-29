@@ -7,6 +7,7 @@ export declare type PgSubscriberConfig = {
     channels?: string[];
     pgConnectionConfig: DsnOrClientConfig;
     dbConnectRetryOptions?: WrapOptions;
+    logger?: (...args: any[]) => void;
 };
 export declare class PgSubscriber extends EventEmitter {
     channels: string[];
@@ -14,6 +15,7 @@ export declare class PgSubscriber extends EventEmitter {
     pgConnectionConfig: DsnOrClientConfig;
     _db: pg.Client | null;
     isOpen: boolean;
+    logger: (...args: any[]) => void;
     constructor(config: PgSubscriberConfig);
     addChannel(channel: string, callback?: (...args: any[]) => any): Promise<void>;
     db(): Promise<pg.Client>;

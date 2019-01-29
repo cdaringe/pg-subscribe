@@ -10,6 +10,7 @@ export type PgSubscriberConfig = {
   channels?: string[]
   pgConnectionConfig: DsnOrClientConfig
   dbConnectRetryOptions?: WrapOptions
+  logger?: (...args: any[]) => void
 }
 
 export class PgSubscriber extends EventEmitter {
@@ -18,6 +19,7 @@ export class PgSubscriber extends EventEmitter {
   public pgConnectionConfig: DsnOrClientConfig
   public _db: pg.Client | null = null
   public isOpen: boolean = false
+  public logger: (...args: any[]) => void
   constructor (config: PgSubscriberConfig) {
     super()
     this.channels = config.channels || []
@@ -27,7 +29,7 @@ export class PgSubscriber extends EventEmitter {
     this.pgConnectionConfig =
       config.pgConnectionConfig || process.env.DATABASE_URL!
     this.setMaxListeners(0)
-
+    this.logger = config.logger || (() => {})
     this._processNotification = this._processNotification.bind(this)
   }
 
@@ -48,6 +50,7 @@ export class PgSubscriber extends EventEmitter {
         await db.connect()
         this.isOpen = true
       } catch (err) {
+        this.logger({ level: 'warn', message: `failed to connect: ${err.message}` })
         return rt(err)
       }
       return db
@@ -89,7 +92,10 @@ export class PgSubscriber extends EventEmitter {
   }
 
   async close () {
-    if (!this._db) return
+    if (!this._db) {
+      this.logger({ level: 'info', message: 'no internal db found. noop\'ing' })
+      return
+    }
     const db = await this.db()
     this.isOpen = false
     await db.end()
