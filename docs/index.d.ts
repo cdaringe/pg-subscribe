@@ -1,17 +1,16 @@
-/// <reference types="node" />
 import { EventEmitter } from 'events';
-import { WrapOptions } from 'retry';
+import { OperationOptions } from 'retry';
 import * as pg from 'pg';
 export declare type DsnOrClientConfig = string | pg.ClientConfig;
 export declare type PgSubscriberConfig = {
     channels?: string[];
     pgConnectionConfig: DsnOrClientConfig;
-    dbConnectRetryOptions?: WrapOptions;
+    dbConnectRetryOptions?: OperationOptions;
     logger?: (...args: any[]) => void;
 };
 export declare class PgSubscriber extends EventEmitter {
     channels: string[];
-    dbConnectRetryOptions: WrapOptions | undefined;
+    dbConnectRetryOptions: OperationOptions | undefined;
     pgConnectionConfig: DsnOrClientConfig;
     _db: pg.Client | null;
     isOpen: boolean;

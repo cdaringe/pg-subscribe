@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events'
-import { WrapOptions } from 'retry'
+import { OperationOptions } from 'retry'
 import * as pg from 'pg'
 import pgFormat from 'pg-format'
 import retry from 'promise-retry'
@@ -9,13 +9,13 @@ export type DsnOrClientConfig = string | pg.ClientConfig
 export type PgSubscriberConfig = {
   channels?: string[]
   pgConnectionConfig: DsnOrClientConfig
-  dbConnectRetryOptions?: WrapOptions
+  dbConnectRetryOptions?: OperationOptions
   logger?: (...args: any[]) => void
 }
 
 export class PgSubscriber extends EventEmitter {
   public channels: string[]
-  public dbConnectRetryOptions: WrapOptions | undefined
+  public dbConnectRetryOptions: OperationOptions | undefined
   public pgConnectionConfig: DsnOrClientConfig
   public _db: pg.Client | null = null
   public isOpen: boolean = false
