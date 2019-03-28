@@ -36,7 +36,7 @@
     "@types/pg": "^7.4.10",
     "@types/pg-format": "^1.0.0",
     "@types/promise-retry": "^1.1.2",
-    "ava": "1.4.0",
+    "ava": "1.4.1",
     "coveralls": "^3.0.2",
     "dockerode": "^2.5.6",
     "dotenv": "7.0.0",
