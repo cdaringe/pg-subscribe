@@ -40,7 +40,7 @@
     "coveralls": "^3.0.2",
     "dockerode": "^2.5.6",
     "dotenv": "8.0.0",
-    "execa": "^1.0.0",
+    "execa": "^2.0.1",
     "freeport": "^1.0.5",
     "husky": "^2.0.0",
     "lint-staged": "^8.1.3",
