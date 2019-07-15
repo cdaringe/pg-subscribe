@@ -28,7 +28,7 @@
     "test": "nyc --exclude build/test ava build/test/**/*.test.js --fail-fast --tap"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.0.0",
+    "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@types/dockerode": "^2.5.5",
     "@types/execa": "^0.9.0",
