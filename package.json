@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "pg-format": "^1.0.2",
-    "promise-retry": "^1.1.1"
+    "promise-retry": "^2.0.0"
   },
   "peerDependencies": {
     "pg": "7+"
