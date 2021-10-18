@@ -32,7 +32,7 @@
     "@commitlint/config-conventional": "^8.0.0",
     "@types/dockerode": "^2.5.5",
     "@types/execa": "^0.9.0",
-    "@types/freeport": "^1.0.21",
+    "@types/freeport": "1.0.22",
     "@types/pg": "^7.4.10",
     "@types/pg-format": "^1.0.0",
     "@types/promise-retry": "^1.1.2",
